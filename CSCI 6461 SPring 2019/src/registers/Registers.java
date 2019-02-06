@@ -11,7 +11,7 @@ public class Registers {
 	 * Program Counter: address of next instruction to be executed.
 	 * Note that 212 = 409
 	 */
-	String pc;
+	int pc;
 
 	/**
 	 * Size: 4 bits
@@ -20,168 +20,255 @@ public class Registers {
 	 * They may be referenced as cc(0), cc(1), cc(2), cc(3). Or by the names
 	 * OVERFLOW, UNDERFLOW, DIVZERO, EQUALORNOT
 	 */
-	String cc;
+	int cc;
 
 	/**
 	 * Size: 16 bits
 	 * Instruction Register: holds the instruction to be executed
 	 */
-	String ir;
+	int ir;
 
 	/**
 	 * Size: 16 bits
 	 * Memory Address Register: holds the address of the word to be fetched from memory
 	 */
-	String mar;
+	int mar;
 
 	/**
 	 * Size: 16 bits
 	 * Memory Buffer Register: holds the word just fetched from or the word to be /last stored into memory
 	 */
-	String mbr;
+	int mbr;
 
 	/**
 	 * Size: 4 bits
 	 * Machine Fault Register: contains the ID code if a machine fault after it occurs
 	 */
-	String mfr;
+	int mfr;
 
 	/**
 	 * Size: 16 bits
 	 * Index Register: contains a base address that supports base register addressing of memory.
 	 */
-	String x1;
+	int x1;
 
-	String x2;
+	int x2;
 
-	String x3;
+	int x3;
 
-	String x4;
+	int x4;
 
 	/**
 	 * Size: 16 bits
 	 * General Purpose register
 	 */
 
-	String r0;
+	int r0;
 	
-	String r1;
+	int r1;
 
-	String r2;
+	int r2;
 
-	String r3;
+	int r3;
 
-	public String getPc() {
+	public int getPc() {
 		return pc;
 	}
 
-	public void setPc(String pc) {
+	public void setPc(int pc) {
 		this.pc = pc;
 	}
 
-	public String getCc() {
+	public int getCc() {
 		return cc;
 	}
 
-	public void setCc(String cc) {
+	public void setCc(int cc) {
 		this.cc = cc;
 	}
 
-	public String getIr() {
+	public int getIr() {
 		return ir;
 	}
 
-	public void setIr(String ir) {
+	public void setIr(int ir) {
 		this.ir = ir;
 	}
 
-	public String getMar() {
+	public int getMar() {
 		return mar;
 	}
 
-	public void setMar(String mar) {
+	public void setMar(int mar) {
 		this.mar = mar;
 	}
 
-	public String getMbr() {
+	public int getMbr() {
 		return mbr;
 	}
 
-	public void setMbr(String mbr) {
+	public void setMbr(int mbr) {
 		this.mbr = mbr;
 	}
 
-	public String getMfr() {
+	public int getMfr() {
 		return mfr;
 	}
 
-	public void setMfr(String mfr) {
+	public void setMfr(int mfr) {
 		this.mfr = mfr;
 	}
 
-	public String getX1() {
+	public int getX1() {
 		return x1;
 	}
 
-	public void setX1(String x1) {
+	public void setX1(int x1) {
 		this.x1 = x1;
 	}
 
-	public String getX2() {
+	public int getX2() {
 		return x2;
 	}
 
-	public void setX2(String x2) {
+	public void setX2(int x2) {
 		this.x2 = x2;
 	}
 
-	public String getX3() {
+	public int getX3() {
 		return x3;
 	}
 
-	public void setX3(String x3) {
+	public void setX3(int x3) {
 		this.x3 = x3;
 	}
 
-	public String getX4() {
+	public int getX4() {
 		return x4;
 	}
 
-	public void setX4(String x4) {
+	public void setX4(int x4) {
 		this.x4 = x4;
 	}
 
-	public String getR0() {
+	public int getR0() {
 		return r0;
 	}
 
-	public void setR0(String r0) {
+	public void setR0(int r0) {
 		this.r0 = r0;
 	}
 
-	public String getR1() {
+	public int getR1() {
 		return r1;
 	}
 
-	public void setR1(String r1) {
+	public void setR1(int r1) {
 		this.r1 = r1;
 	}
 
-	public String getR2() {
+	public int getR2() {
 		return r2;
 	}
 
-	public void setR2(String r2) {
+	public void setR2(int r2) {
 		this.r2 = r2;
 	}
 
-	public String getR3() {
+	public int getR3() {
 		return r3;
 	}
 
-	public void setR3(String r3) {
+	public void setR3(int r3) {
 		this.r3 = r3;
 	}
+	
+	//Increment program counter pc
+	public void incrementPC(){
+		this.pc++;
+	}
+	
+	//Find the content of the index register (IX) with its number corresponding to the input
+	public int getIndexRegisterj(int input) {
+		switch (input) {
+		//register X1
+		case 1:
+			return x1;
+			//register X2	
+		case 2:
+			return x2;
+			//register X3
+		case 3:
+			return x3;
+		
+			//0 value indicate NO indexing
+		default:
+			return 0;
+		
+		}
+	}
+	
+	//Find the content of the index register (IX) with its number corresponding to the input
+		public void setIndexRegisterj
+		(int xj, int input) {
+			switch (xj) {
+			//register X1
+			case 1:
+			 this.x1 = input;
+				//register X2	
+			case 2:
+				this.x2 = input;
+				//register X3
+			default:
+				this.x3 = input;
+			
+			
+			}
+		}
+	
+		
+		//Find the content of the GPRs (Rj) with its number corresponding to the input
+		//
+		public int getGPRj(int input) {
+			switch (input) {
+			//register R0
+			case 0:
+				return r0;
+			
+			//register R1
+			case 1:
+				return r1;
+				//register R2	
+			case 2:
+				return r2;
+				//register R3
+			default:
+				return r3;
+			}
+	}
+
+		/**
+		 * 
+		 * @param generalPurposeRegister: determine which GPR register to move data into
+		 * @param value: value to store in GPR
+		 */
+		public void setGPRj(int generalPurposeRegister, int value) {
+			// TODO Auto-generated method stub
+			switch (generalPurposeRegister) {
+			//register R0
+			case 0:
+				this.r0 = value;
+			//register R1
+			case 1:
+				this.r1 = value;
+				//register R2	
+			case 2:
+				this.r2 = value;
+				//register R3
+			default:
+				this.r3 = value;
+			}
+		}
 
 
 }

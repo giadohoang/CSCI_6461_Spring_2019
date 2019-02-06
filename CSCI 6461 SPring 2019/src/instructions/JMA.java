@@ -1,11 +1,12 @@
 package instructions;
 
+import registers.Memory;
 import registers.Registers;
 
 public class JMA extends Instructions{
 
 	@Override
-	public void execute(String instruction, Registers register) {
+	public void execute(String instruction, Registers register, Memory memory) {
 		// TODO Auto-generated method stub
 		
 	}

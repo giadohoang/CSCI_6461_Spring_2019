@@ -1,5 +1,6 @@
 package instructions;
 
+import registers.Memory;
 import registers.Registers;
 
 /**
@@ -12,6 +13,7 @@ import registers.Registers;
 
 public abstract class Instructions {
 
+	
 
 	
 	/**
@@ -21,7 +23,7 @@ public abstract class Instructions {
 	 * 
 	 * @param register: Taken opcode from the register to determine type of intruction and call corresponding registers
 	 */
-	public abstract void execute(String instruction, Registers register);
+	public abstract void execute(String instruction, Registers register, Memory memory);
 	
 	/**
 	 * For debugging purpose
