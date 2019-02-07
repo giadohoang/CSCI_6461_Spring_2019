@@ -6,6 +6,14 @@ import registers.Registers;
 public class ComputingEffectiveAddress {
 
 	public static int computeEffectiveAddress(int i, int ix, int address, Registers register, Memory memory) {
+		System.out.println("Start calculating Effective Address: I= " + i + ", IX= " + ix + ", Address= " + address);
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		int ea=0;
 		//No indirect addressing
 		if (i == 0) {
@@ -45,7 +53,7 @@ public class ComputingEffectiveAddress {
 		}
 
 
-
+		System.out.println("Finish calculating Effective Address= " + ea);
 		return ea;
 	} 
 

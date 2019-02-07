@@ -45,12 +45,13 @@ public class STR extends Instructions {
 					System.out.println("Move content of temp reg into the MAR. Temp reg now contains EA: " + register.getMar());
 					
 					//Move the contents of the reg to be store into the MBR
+					System.out.println("Move the contents of the reg to be store into the MBR, before: " + register.getMbr());
 					register.setMbr(register.getGPRj(r));
-					System.out.println("Move the contents of the reg to be store into the MBR: " + register.getMbr());
+					System.out.println("Move the contents of the reg to be store into the MBR, after " + register.getMbr());
 					
 					//Store M[MAR] = MBR;
 					memory.setMemory(register.getMar(), register.getMbr());
-					System.out.println("Store M[MAR] = MBR: location" + register.getMar() + ", content: " + register.getMbr());
+					System.out.println("Store M[MAR] = MBR: location" + register.getMar() + ", content: " + memory.getFromMemory(register.getMar()));
 				}
 				
 	}

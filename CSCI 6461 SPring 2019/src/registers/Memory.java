@@ -10,7 +10,7 @@ public class Memory {
 	public Memory() {
 		for(int i =0;i <= 2047;i++) {
 			//Set memory at location i to 0
-			memory.add( 0);
+			memory.add( i+1);
 		}
 	}
 	
