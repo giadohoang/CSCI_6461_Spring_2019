@@ -50,8 +50,11 @@ public class STR extends Instructions {
 					System.out.println("Move the contents of the reg to be store into the MBR, after " + register.getMbr());
 					
 					//Store M[MAR] = MBR;
-					memory.setMemory(UnitConverter.stringToInteger(register.getMar()), register.getMbr());
-					System.out.println("Store M[MAR] = MBR: location" + register.getMar() + ", content: " + memory.getFromMemory(UnitConverter.stringToInteger(register.getMar())));
+					
+					memory.setMemory(UnitConverter.binaryStringToInteger(register.getMar()), register.getMbr());
+					//memory.getFromMemory(UnitConverter.stringToInteger(register.getMar())
+					//signature: memory.getFromMemory( int address)
+					System.out.println("Store M[MAR] = MBR: location" + register.getMar() + ", content: " + memory.getFromMemory(UnitConverter.binaryStringToInteger(register.getMar())));
 				}
 				
 	}

@@ -1,19 +1,27 @@
 package instructions;
 
 public class UnitConverter {
-	
+
 	public static int binaryToInteger(String string) {
-		return (Integer.parseInt(string,2));
+		return (Integer.parseInt(string, 2));
 	}
-	
-	public static int stringToInteger(String string) {
-		return (Integer.parseInt(string));
+
+	public static int binaryStringToInteger(String string) {
+		return (Integer.parseInt(string, 2));
 	}
-	
-	public static String integerToBinary(int integer) {
-		return Integer.toBinaryString(integer);
+
+	/**
+	 * 
+	 * @param integerValue: integer input
+	 * @return 16 bit binary
+	 * 			The idea here is to get the zero padding by putting a 1 in the 17th
+	 *         place of your value, and then use String.substring() to chop off the
+	 *         leading 1 this creates, thus always giving you exactly 16 binary
+	 *         digits. (This works, of course, only when you are certain that the
+	 *         input is a 16-bit number.)
+	 */
+	public static String integerToBinary(int integerValue) {
+		return Integer.toBinaryString(0x10000 | integerValue).substring(1);
 	}
-	
-	
 
 }

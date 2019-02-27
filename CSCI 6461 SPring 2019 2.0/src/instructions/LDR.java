@@ -63,7 +63,7 @@ public class LDR extends Instructions{
 			System.out.println("Move content of temp reg into the MAR. Temp reg now contains EA: " + register.getMar());
 			
 			//Fetch M[MAR] into MBR
-			register.setMbr(memory.getFromMemory(UnitConverter.stringToInteger(register.getMar())));
+			register.setMbr(memory.getFromMemory(UnitConverter.binaryStringToInteger(register.getMar())));
 			System.out.println("Fetch M[MAR] into MBR: " + register.getMbr());
 			
 			//Move MAR into temp reg one of the GPRs

@@ -67,7 +67,7 @@ public class STX extends Instructions{
 			System.out.println("Move the contents of the reg to be store into the MBR: " + register.getMbr());
 			
 			//Store M[MAR] = MBR;
-			memory.setMemory(UnitConverter.stringToInteger(register.getMar()),register.getMbr());
+			Memory.setMemory(UnitConverter.binaryStringToInteger(register.getMar()),register.getMbr());
 			System.out.println("Store M[MAR] = MBR: location" + register.getMar() + ", content: " + register.getMbr());
 			
 			}

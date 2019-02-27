@@ -28,6 +28,7 @@ public class Memory {
 				Memory.setMemory(i, line.trim());	
 				line = reader.readLine();
 				i++;
+				
 			}
 			reader.close();
 		} catch (IOException e) {

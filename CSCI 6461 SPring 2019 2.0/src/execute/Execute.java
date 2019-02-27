@@ -18,8 +18,8 @@ public class Execute {
 	static Memory memory = new Memory();
 	static Memory memory2 = new Memory();
 	
-	String BinaryInstruction1 = "0000011100011110";
-	String BinaryInstruction1a = "0000010100011111";
+	//String BinaryInstruction1 = "0000011100011110";
+//	String BinaryInstruction1a = "0000010100011111";
 //	String BinaryInstruction2 = "0000011100011111";
 //	String BinaryInstruction3 = "0000011100011111";
 //	String BinaryInstruction4 = "0000011100011111";
@@ -32,10 +32,18 @@ public class Execute {
 	public void runExecute(String pc) {
 		register.setMar(pc);
 		System.out.println("Read pc into MAR: " + pc);
-		register.setMbr(memory.getFromMemory(UnitConverter.stringToInteger(register.getMar())));
-		System.out.println("Set MBR = M[MAR] " + memory.getFromMemory(UnitConverter.stringToInteger(register.getMar())));
+		System.out.println("MAR is now: " + register.getMar() +", " + UnitConverter.binaryStringToInteger(register.getMar()));
+		//something wrong here
+		//System.out.println("Read pc into MAR: " + pc);
+		register.setMbr(memory.getFromMemory(UnitConverter.binaryStringToInteger(register.getMar())));
+		//System.out.println("M[" + register.getMar() +"]: " + memory.getFromMemory(UnitConverter.binaryStringToInteger(register.getMar())));
+		//System.out.println("MBR is now:          " + register.getMbr());
+		System.out.println("Set MBR = M[MAR] " + memory.getFromMemory(UnitConverter.binaryStringToInteger(register.getMar())));
+		
 		decode(register.getMbr());
-//		decode(BinaryInstruction1);
+
+		
+		//		decode(BinaryInstruction1);
 //		decode(BinaryInstruction1a);
 //		decode(BinaryInstruction2);
 //		decode(BinaryInstruction4);
@@ -62,17 +70,19 @@ public class Execute {
 		// TODO Auto-generated method stub
 		//Create a reference to the libary
 		Execute execute = new Execute();
+		String pc = "0000000000001101";
 		System.out.println("Assume we have following value on registers:");
-		register.setR0("100");
-		register.setR1("101");
-		register.setR2("102");
-		register.setR3("103");
+		register.setR0("0111110110111001");
+		register.setR1("1000010001101101");
+		register.setR2("1000101011001010");
+		register.setR3("1010000100101000");
 		
-		register.setX1("201");
-		register.setX2("202");
-		register.setX3("203");
+		register.setX1("0011011101010101");
+		register.setX2("1111111001111001");
+		register.setX3("0101101011000000");
+		register.setPc(pc);
 		register.printRegisterState();
-		String pc = "160";
+		
 		
 		execute.runExecute(pc);
 		System.out.println("After execution steps, we have:");
